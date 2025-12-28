@@ -195,11 +195,82 @@ footer {
     color: #888;
 }
 
-/* MEDIA QUERIES (Para Celulares) */
+/* =========================================
+   VERSIÓN MÓVIL (Para celulares)
+   ========================================= */
 @media (max-width: 768px) {
-    .main-header { flex-direction: column; }
-    .navbar ul { margin-top: 15px; }
-    .hero h1 { font-size: 2rem; }
+
+    /* 1. ARREGLAR EL MENÚ Y LOGO */
+    .main-header {
+        flex-direction: column; /* Poner logo arriba y menú abajo */
+        padding: 15px;
+        position: relative; /* Para que no flote raro */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Los links uno debajo del otro */
+        align-items: center;    /* Centrados */
+        gap: 15px;              /* Espacio entre cada link */
+        margin-top: 20px;       /* Separar del logo */
+        width: 100%;
+        padding: 0;
+    }
+
+    .navbar ul li a {
+        display: block;         /* Hacemos que el link sea un bloque */
+        padding: 10px 20px;     /* Más fácil de tocar con el dedo */
+        background-color: #f9f9f9; /* Un fondo suave para diferenciarlo */
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 2. ACHICAR TEXTOS GIGANTES */
+    .hero {
+        height: auto;       /* Que se ajuste al contenido, no forzar altura */
+        padding: 80px 20px; /* Darle aire arriba y abajo */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;  /* Mucho más pequeño para que quepa */
+        line-height: 1.2;
+    }
+
+    .hero .slogan {
+        font-size: 1rem;
+    }
+
+    /* 3. AJUSTAR TARJETAS Y GRID */
+    .identity-section {
+        grid-template-columns: 1fr; /* Una sola columna (una tarjeta debajo de otra) */
+        padding: 30px 15px;
+    }
+
+    /* 4. ARREGLAR COORDINADORES */
+    .coordinators-container {
+        flex-direction: column; /* Uno debajo del otro */
+        align-items: center;
+    }
+    
+    .coord-card {
+        width: 100%; /* Que ocupen todo el ancho disponible */
+        max-width: 300px;
+    }
+
+    /* 5. ARREGLAR SECCIÓN DE CONTACTO/VIDEO */
+    .video-submission-box {
+        padding: 20px; /* Menos relleno interno */
+        width: 100%;
+    }
+    
+    .email-display {
+        font-size: 0.9rem; /* Letra más pequeña para que quepa el correo */
+        word-break: break-all; /* Si el correo es muy largo, que baje de línea */
+    }
+
+    .social-links {
+        flex-wrap: wrap; /* Si hay muchos iconos, que bajen */
+    }
 }
 /* === ESTILOS NUEVOS PARA COORDINADORES === */
 
