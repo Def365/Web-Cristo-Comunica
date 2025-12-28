@@ -1,0 +1,252 @@
+/* Agrega esto al principio de tu CSS */
+
+html {
+    scroll-behavior: smooth; /* Esto hace que baje deslizándose suave, no de golpe */
+}
+
+/* El truco para que el menú no tape el título */
+section {
+    scroll-margin-top: 100px; /* Esto deja un "colchón" de espacio arriba al hacer clic */
+}
+/* VARIABLES: Cambia los colores aquí fácilmente */
+:root {
+    --primary-color: #E33E3E; /* Rojo MJS */
+    --secondary-color: #F4A261; /* Naranja */
+    --dark-bg: #139292;
+    --light-bg: #f4f4f4;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+/* REINICIO BÁSICO (Reset) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* UTILIDADES */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER Y NAV (Flexbox) */
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between; /* Logo a un lado, menú al otro */
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-placeholder {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 5px 10px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?youth,communication');
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* 80% del alto de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero .slogan { font-size: 1.5rem; font-style: italic; margin-bottom: 20px; }
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+.btn-primary:hover { transform: scale(1.05); }
+
+/* SECCIÓN IDENTIDAD (CSS Grid) */
+.identity-section {
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo automático */
+    gap: 20px;
+}
+
+.card {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border-top: 5px solid var(--primary-color);
+}
+
+.card h3 { color: var(--primary-color); margin-bottom: 15px; }
+
+/* SECCIÓN INFO (Coordinador y Reglas) */
+.info-section {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 60px 0;
+}
+
+.split-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.coordinator-box, .rules-box { flex: 1; min-width: 300px; }
+
+.rules-list li {
+    margin-bottom: 10px;
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+/* CONTACTO Y VIDEO */
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.video-submission-box {
+    background: #eef2f5;
+    border: 2px dashed var(--secondary-color);
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 15px;
+}
+
+.email-display {
+    background: var(--white);
+    padding: 15px;
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--dark-bg);
+    border-radius: 5px;
+    user-select: all; /* Facilita copiar el texto */
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    text-decoration: none;
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.facebook { background: #3b5998; }
+.instagram { background: #E1306C; }
+.tiktok { background: #000000; }
+.youtube { background: #FF0000; }
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: #888;
+}
+
+/* MEDIA QUERIES (Para Celulares) */
+@media (max-width: 768px) {
+    .main-header { flex-direction: column; }
+    .navbar ul { margin-top: 15px; }
+    .hero h1 { font-size: 2rem; }
+}
+/* === ESTILOS NUEVOS PARA COORDINADORES === */
+
+/* El contenedor que los agrupa */
+.coordinators-container {
+    display: flex;       /* Los pone en fila (uno al lado del otro) */
+    flex-wrap: wrap;     /* Si es celular, baja uno debajo del otro */
+    gap: 20px;           /* Espacio entre Belén y José */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* La tarjeta individual de cada uno */
+.coord-card {
+    background: rgba(255, 255, 255, 0.1); /* Fondo transparente sutil */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;             /* Se reparten el espacio equitativamente */
+    min-width: 200px;    /* Ancho mínimo para que no se aplasten */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* La foto redonda */
+.coord-photo {
+    width: 80px;        /* Tamaño de la foto */
+    height: 100px;       /* Cuadrada perfecta */
+    border-radius: 50%;  /* ¡El círculo mágico! */
+    object-fit: cover;   /* Evita que la cara se deforme */
+    border: 3px solid var(--secondary-color); /* Borde naranja */
+    margin-bottom: 10px;
+}
+
+.coord-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--secondary-color); /* Nombres en naranja para resaltar */
+}
+
+.role {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #ddd;
+}
